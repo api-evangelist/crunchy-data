@@ -1,0 +1,37 @@
+name: Crunchy Bridge API changelog
+generated: '2026-10-13'
+method: searched
+source: https://api.crunchybridge.com/changelogs?component=api&order=desc
+docs: https://docs.crunchybridge.com/changelog
+scheme: dated entries, no version numbers
+entries:
+- version: agj4ergulany7r63ok42doutbm
+  date: '2024-12-13'
+  breaking: false
+  highlights:
+  - The event list API endpoint supports a delay parameter
+- version: agjfeqcsadci76qnx4a6nhs7da
+  date: '2024-10-03'
+  breaking: false
+  highlights:
+  - Endpoints for managing configuration parameters are now available.
+- version: age5c2dmrborkqvav6yuhugg3u
+  date: '2023-08-07'
+  breaking: false
+  highlights:
+  - Support for range types in query API and saved queries
+- version: agdqua55oaqdncz5xpculgqyhe
+  date: '2023-03-22'
+  breaking: true
+  highlights:
+  - Event role.password_revealed has been deprecated
+- version: agdcpxwtqcysddpfem75lfx7qq
+  date: '2023-02-06'
+  breaking: false
+  highlights:
+  - Replica destroy endpoint deprecated
+- version: aga2wgovwcln22mnmsrsd5okpu
+  date: '2022-06-28'
+  breaking: false
+  highlights:
+  - API key authentication (API keys usable as Bearer token)

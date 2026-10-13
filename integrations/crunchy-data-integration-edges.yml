@@ -1,0 +1,16 @@
+generated: '2026-10-13'
+method: none
+source:
+- https://zapier.com/apps/crunchy-data/integrations
+- https://n8n.io/integrations/crunchy-data/
+- https://composio.dev/toolkits/crunchy-data
+- https://monid.ai/tools/crunchy-data
+checked:
+- https://composio.dev/toolkits/crunchy-data
+- https://monid.ai/tools/crunchy-data
+- https://n8n.io/integrations/crunchy-data/
+- https://zapier.com/apps/crunchy-data/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []

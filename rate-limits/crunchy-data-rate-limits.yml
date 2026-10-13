@@ -1,0 +1,12 @@
+name: Crunchy Bridge API rate limits
+generated: '2026-10-13'
+method: searched
+source: https://docs.crunchybridge.com/api-concepts/getting-started
+limits:
+- name: requests per second
+  scope: unspecified
+  limit_text: The most common rate limit is number of allowed requests per second
+headers:
+- Retry-After
+status_on_exhaustion: 429
+note: No numeric limit is published; rate limits are not guaranteed by the API compatibility policy.

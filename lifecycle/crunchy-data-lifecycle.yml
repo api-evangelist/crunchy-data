@@ -1,0 +1,16 @@
+name: Crunchy Bridge API lifecycle
+generated: '2026-10-13'
+method: searched
+source: https://docs.crunchybridge.com/api-concepts/getting-started
+versioning:
+  scheme: none (single unversioned API with a backwards-compatibility policy)
+  docs: https://docs.crunchybridge.com/api-concepts/getting-started
+deprecation:
+  policy: Deprecations are announced in the changelog (e.g. replica destroy endpoint, role.password_revealed event); deprecated cluster firewall endpoints point to network firewall-rules.
+  docs: https://docs.crunchybridge.com/api/changelog
+  deprecated_operations:
+  - listFirewallRules
+  - createFirewallRule
+  - updateFirewallRule
+  - destroyFirewallRule
+status_page: https://status.crunchybridge.com/

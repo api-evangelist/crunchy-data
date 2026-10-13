@@ -1,0 +1,141 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+vocabulary:
+  name: Crunchy Data Domain Vocabulary
+  description: 'Terms declared by Crunchy Data''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-13'
+  terms:
+  - term: Access Token
+    definition: 'Resource group in the contract; its operation POST /access-tokens: We recommend that access tokens be reused between requests
+      as much as possible before they expire.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Account
+    definition: 'Resource group in the contract; its operation GET /account: Get the currently authenticated account.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Cluster Backup
+    definition: 'Resource group in the contract; its operation GET /clusters/{cluster_id}/backups: This endpoint''s pagination may be ordered
+      through the order_field parameter by name only.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Cluster Firewall Rule
+    definition: 'Resource group in the contract; its operation GET /clusters/{cluster_id}/firewall: Deprecated: Prefer use of GET /networks/:network_id/firewall-rules.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Cluster Logger
+    definition: 'Resource group in the contract; its operation GET /clusters/{cluster_id}/loggers: This endpoint''s pagination may be ordered
+      through the order_field parameter by id or host_and_port.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Cluster Replica
+    definition: 'Resource group in the contract; its operation POST /clusters/{cluster_id}/replicas: Create a read-replica for an existing database
+      cluster.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Cluster Upgrade
+    definition: 'Resource group in the contract; its operation GET /clusters/{cluster_id}/upgrade: Get the status of an ongoing cluster resize.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Cluster
+    definition: 'Resource group in the contract; its operation GET /clusters: This endpoint''s pagination may be ordered through the order_field
+      parameter by id or name.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Configuration Parameter
+    definition: 'Resource group in the contract; its operation GET /configuration-parameters: Unlike other list endpoints, this one doesn''t support
+      pagination.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Event
+    definition: 'Resource group in the contract; its operation GET /events: This endpoint''s pagination may be ordered through the order_field
+      parameter by id only.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Metric View
+    definition: 'Resource group in the contract; its operation GET /metric-views/{name}: Get a metric view.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Network Firewall Rule
+    definition: 'Resource group in the contract; its operation GET /networks/{network_id}/firewall-rules: This endpoint''s pagination may be ordered
+      through the order_field parameter by id or cidr.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Network Peering
+    definition: 'Resource group in the contract; its operation GET /networks/{network_id}/peerings: This endpoint''s pagination may be ordered
+      through the order_field parameter by id.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Network
+    definition: 'Resource group in the contract; its operation GET /networks: This endpoint''s pagination may be ordered through the order_field
+      parameter by id only.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Postgres Role
+    definition: 'Resource group in the contract; its operation GET /clusters/{cluster_id}/roles: This endpoint''s pagination may be ordered through
+      the order_field parameter by id or name.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Postgres Version
+    definition: 'Resource group in the contract; its operation GET /postgres-versions: List available Postgres versions.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Private Link Connection
+    definition: 'Resource group in the contract; its operation GET /clusters/{cluster_id}/private-link-connections: Unlike other list endpoints,
+      this one doesn''t support pagination.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Private Link
+    definition: 'Resource group in the contract; its operation GET /clusters/{cluster_id}/private-link: Get private link of a cluster, returns
+      a 404 if the cluster has no private link.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Provider
+    definition: 'Resource group in the contract; its operation GET /providers: List available cloud providers.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Query
+    definition: 'Resource group in the contract; its operation POST /queries: Callers can set async to true to have the query run asynchronously
+      instead.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Team Member
+    definition: 'Resource group in the contract; its operation GET /teams/{team_id}/members: This endpoint''s pagination may be ordered through
+      the order_field parameter by id and email.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Team
+    definition: 'Resource group in the contract; its operation GET /teams: This endpoint''s pagination may be ordered through the order_field
+      parameter by id and name.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+  - term: Changelog
+    definition: 'Resource group in the contract; its operation GET /changelogs: List changelogs.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/crunchy-data-openapi-generated.yml

@@ -1,0 +1,65 @@
+name: Crunchy Bridge API conventions
+generated: '2026-10-13'
+method: searched
+source: https://docs.crunchybridge.com/api-concepts/getting-started
+auth:
+  style: 'Bearer API key (Authorization: Bearer <key>); keys prefixed cbkey_; short-lived access tokens via POST /access-tokens'
+  docs: https://docs.crunchybridge.com/api-concepts/getting-started
+idempotency:
+  coverage: full
+  header: Idempotency-Key
+  value: UUID
+  scope:
+  - GET, PUT and DELETE are idempotent by HTTP semantics
+  - POST and PATCH accept an Idempotency-Key header
+  notes: A reused key with a different verb, path or body, or reused before the original request finishes, returns 409 Conflict. Already-deleted objects return 410 Gone rather than 404.
+  docs: https://docs.crunchybridge.com/api-concepts/idempotency
+pagination:
+  style: cursor
+  params:
+  - cursor
+  - limit
+  - order
+  - order_field
+  response_fields:
+  - has_more
+  - next_cursor
+  default_page_size: 100
+  docs: https://docs.crunchybridge.com/api-concepts/getting-started
+request_id:
+  header: X-Request-Id
+  note: All API responses include an X-Request-Id header; clients may send their own.
+  docs: https://docs.crunchybridge.com/api-concepts/getting-started
+errors:
+  envelope:
+    message: string
+    request_id: string
+  catalog: errors/crunchy-data-problem-types.yml
+rate_limit_signaling:
+  status: 429
+  headers:
+  - Retry-After
+  docs: https://docs.crunchybridge.com/api-concepts/getting-started
+versioning:
+  style: unversioned, backwards-compatibility policy
+  docs: https://docs.crunchybridge.com/api-concepts/getting-started
+events:
+  style: polling (no webhooks)
+  note: Crunchy Bridge doesn't provide webhooks, but it does have a real-time event API that can be polled for changes on a cluster or team.
+  docs: https://docs.crunchybridge.com/api-concepts/event-polling
+reversibility:
+  surfaces:
+  - surface: cluster upgrade
+    reversal: cancelUpgrade
+    operationId: cancelUpgrade
+    window: before the scheduled/ongoing upgrade completes (not stated numerically)
+    grade: documented
+    docs: https://docs.crunchybridge.com/api/cluster-upgrade
+  - surface: cluster suspend
+    reversal: resumeCluster
+    operationId: resumeCluster
+    grade: documented
+    docs: https://docs.crunchybridge.com/api/cluster
+  - surface: cluster delete
+    reversal: none documented
+    grade: none

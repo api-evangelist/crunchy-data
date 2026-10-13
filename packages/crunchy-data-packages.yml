@@ -1,0 +1,20 @@
+name: Crunchy Data packages
+generated: '2026-10-13'
+method: searched
+source: https://github.com/CrunchyData
+packages:
+- name: CrunchyData/crunchybridge
+  registry: terraform
+  url: https://registry.terraform.io/providers/CrunchyData/crunchybridge
+  language: HCL
+  official: true
+  version: 0.3.0
+  published: '2025-02-06'
+- name: cb
+  registry: homebrew-tap
+  url: https://github.com/CrunchyData/bridge-cli
+  language: Crystal
+  official: true
+  version: v3.7.2
+  published: '2026-09-17'
+  install: brew install CrunchyData/brew/cb

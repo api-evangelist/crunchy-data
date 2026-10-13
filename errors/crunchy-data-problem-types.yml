@@ -1,0 +1,45 @@
+name: Crunchy Bridge API status codes
+generated: '2026-10-13'
+method: searched
+source: https://docs.crunchybridge.com/api-concepts/getting-started
+format: json
+envelope:
+  message: string
+  request_id: string
+problems:
+- status: 200
+  title: OK
+  description: Returned for most successful responses.
+- status: 201
+  title: Created
+  description: Returned in cases where a new resource has been created.
+- status: 204
+  title: No content
+  description: Indicates an empty response body.
+- status: 400
+  title: Bad request
+  description: Indicates that the incoming request is invalid — usually because it didn't supply enough parameters or the parameters were incorrect.
+- status: 401
+  title: Unauthorized
+  description: No credentials were provided or the credentials were invalid.
+- status: 403
+  title: Forbidden
+  description: The client authenticated correctly, but isn't allowed access to the target resource.
+- status: 404
+  title: Not found
+  description: A requested resource wasn't found, which may mean that one of the supplied IDs was bad.
+- status: 405
+  title: Method not allowed
+  description: Occurs when an endpoint is invoked for which the path is valid, but the HTTP method used was not.
+- status: 409
+  title: Conflict
+  description: Occurs when a request conflicts with another closely timed request and couldn't be performed.
+- status: 410
+  title: Gone
+  description: The API may respond with a 410 instead of a 404 when it detects that a resource did exist previously and has subsequently been deleted.
+- status: 429
+  title: Too many requests
+  description: Indicates that the request has been rate limited and that the client should slow down in making requests.
+- status: 500
+  title: Internal server error
+  description: An internal problem has occurred.

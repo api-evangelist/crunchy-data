@@ -1,0 +1,1450 @@
+openapi: 3.1.0
+info:
+  title: Crunchy Bridge API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 82 operation(s), each METHOD + path copied verbatim from the code blocks of the public Crunchy Bridge API reference (docs.crunchybridge.com/api/*;
+    each operation names its page in x-source). Summaries are the page headings; descriptions are the paragraph preceding each endpoint. Request/response bodies are not modelled. This is not the provider''s
+    published contract; Crunchy Data publishes no machine-readable contract the pipeline could find.'
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: deterministic code-block extraction (scratch script; generate-contract-from-docs.py split path params on <span> tokens and collapsed /clusters/{cluster_id} to /clusters)
+  x-sources:
+  - https://docs.crunchybridge.com/api/access-token
+  - https://docs.crunchybridge.com/api/account
+  - https://docs.crunchybridge.com/api/cluster
+  - https://docs.crunchybridge.com/api/cluster-backup
+  - https://docs.crunchybridge.com/api/cluster-firewall-rule
+  - https://docs.crunchybridge.com/api/cluster-logger
+  - https://docs.crunchybridge.com/api/cluster-replica
+  - https://docs.crunchybridge.com/api/cluster-upgrade
+  - https://docs.crunchybridge.com/api/configuration-parameter
+  - https://docs.crunchybridge.com/api/event
+  - https://docs.crunchybridge.com/api/metric-view
+  - https://docs.crunchybridge.com/api/network
+  - https://docs.crunchybridge.com/api/network-firewall-rule
+  - https://docs.crunchybridge.com/api/network-peering
+  - https://docs.crunchybridge.com/api/postgres-role
+  - https://docs.crunchybridge.com/api/postgres-version
+  - https://docs.crunchybridge.com/api/private-link
+  - https://docs.crunchybridge.com/api/private-link-connection
+  - https://docs.crunchybridge.com/api/provider
+  - https://docs.crunchybridge.com/api/query
+  - https://docs.crunchybridge.com/api/team
+  - https://docs.crunchybridge.com/api/team-member
+  - https://docs.crunchybridge.com/api/changelog
+servers:
+- url: https://api.crunchybridge.com
+security:
+- bearer: []
+paths:
+  /access-tokens:
+    post:
+      operationId: createAccessToken
+      tags:
+      - Access Token
+      summary: Create access token
+      description: We recommend that access tokens be reused between requests as much as possible before they expire. This makes programs more efficient because you don't end up with two separate API calls
+        for every operation (i.e. one to procure an access token and the other for the operation).
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/access-token
+  /access-tokens/{access_token_id}:
+    delete:
+      operationId: destroyAccessToken
+      tags:
+      - Access Token
+      summary: Destroy access token
+      description: Delete an existing access token.
+      parameters:
+      - name: access_token_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/access-token
+  /account:
+    get:
+      operationId: getAccount
+      tags:
+      - Account
+      summary: Get account
+      description: Get the currently authenticated account.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/account
+    delete:
+      operationId: destroyAccount
+      tags:
+      - Account
+      summary: Destroy account
+      description: Delete the currently authenticated account. Accounts can only be deleted if no teams for which they're the only admin own any provisioned clusters. If provisioned clusters still exist,
+        users should deprovision them before trying to call this endpoint. If deletion is successful, teams for which the account was the only admin will also be removed.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/account
+  /clusters/{cluster_id}/backups:
+    get:
+      operationId: listBackups
+      tags:
+      - Cluster Backup
+      summary: List backups
+      description: This endpoint's pagination may be ordered through the order_field parameter by name only.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-backup
+  /clusters/{cluster_id}/backup-tokens:
+    post:
+      operationId: createBackupToken
+      tags:
+      - Cluster Backup
+      summary: Create backup token
+      description: The endpoint returns configuration for a cloud provider's blob store (e.g. like Amazon's S3) which is the location of a pgBackRest repository. Configuring pgBackRest with this information
+        will allow it to restore from the cluster's backups which are generated periodically as part of normal operation.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-backup
+  /clusters/{cluster_id}/firewall:
+    get:
+      operationId: listFirewallRules
+      tags:
+      - Cluster Firewall Rule
+      summary: List firewall rules
+      description: 'Deprecated: Prefer use of GET /networks/:network_id/firewall-rules.'
+      deprecated: true
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-firewall-rule
+    post:
+      operationId: createFirewallRule
+      tags:
+      - Cluster Firewall Rule
+      summary: Create firewall rule
+      description: 'Deprecated: Prefer use of POST /networks/:network_id/firewall-rules.'
+      deprecated: true
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-firewall-rule
+  /clusters/{cluster_id}/firewall/{rule_id}:
+    put:
+      operationId: updateFirewallRule
+      tags:
+      - Cluster Firewall Rule
+      summary: Update firewall rule
+      description: 'Deprecated: Prefer use of PUT /networks/:network_id/firewall-rules/:rule_id.'
+      deprecated: true
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rule_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-firewall-rule
+    delete:
+      operationId: destroyFirewallRule
+      tags:
+      - Cluster Firewall Rule
+      summary: Destroy firewall rule
+      description: 'Deprecated: Prefer use of DELETE /networks/:network_id/firewall-rules/:rule_id.'
+      deprecated: true
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rule_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-firewall-rule
+  /clusters/{cluster_id}/loggers:
+    get:
+      operationId: listLoggers
+      tags:
+      - Cluster Logger
+      summary: List loggers
+      description: This endpoint's pagination may be ordered through the order_field parameter by id or host_and_port. Defaults to being ordered by id.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+    post:
+      operationId: createLogger
+      tags:
+      - Cluster Logger
+      summary: Create logger
+      description: Create a new logger for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+  /clusters/{cluster_id}/loggers/{logger_id}:
+    get:
+      operationId: getLogger
+      tags:
+      - Cluster Logger
+      summary: Get logger
+      description: Get an existing logger for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: logger_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+    put:
+      operationId: updateLogger
+      tags:
+      - Cluster Logger
+      summary: Update logger
+      description: Update an existing logger for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: logger_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+    delete:
+      operationId: destroyLogger
+      tags:
+      - Cluster Logger
+      summary: Destroy logger
+      description: Delete an existing logger for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: logger_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+  /clusters/{cluster_id}/replicas:
+    post:
+      operationId: createClusterReplica
+      tags:
+      - Cluster Replica
+      summary: Create cluster replica
+      description: Create a read-replica for an existing database cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-replica
+  /clusters/{cluster_id}/actions/detach:
+    put:
+      operationId: detachReplica
+      tags:
+      - Cluster Replica
+      summary: Detach replica
+      description: The replica detaches asynchronously and calling this endpoint multiple times before the final detach resolves will no-op idempotently. Calling detach on a non-replica is an error.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-replica
+  /clusters/{cluster_id}/upgrade:
+    get:
+      operationId: getUpgradeStatus
+      tags:
+      - Cluster Upgrade
+      summary: Get upgrade status
+      description: Get the status of an ongoing cluster resize.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-upgrade
+    post:
+      operationId: upgradeCluster
+      tags:
+      - Cluster Upgrade
+      summary: Upgrade cluster
+      description: Start a cluster upgrade which may include changing its plan, upgrading its major version, increasing its storage size, changing its high availability status, or just performing a scheduled
+        failover.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-upgrade
+    put:
+      operationId: updateUpgradeCluster
+      tags:
+      - Cluster Upgrade
+      summary: Update upgrade cluster
+      description: Common uses for this endpoint are to reschedule an already scheduled upgrade to a different time.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-upgrade
+    delete:
+      operationId: cancelUpgrade
+      tags:
+      - Cluster Upgrade
+      summary: Cancel upgrade
+      description: Cancel a cluster resize.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-upgrade
+  /clusters:
+    get:
+      operationId: listClusters
+      tags:
+      - Cluster
+      summary: List clusters
+      description: This endpoint's pagination may be ordered through the order_field parameter by id or name. Defaults to being ordered by name.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+    post:
+      operationId: createCluster
+      tags:
+      - Cluster
+      summary: Create cluster
+      description: Create a database cluster.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}:
+    get:
+      operationId: getCluster
+      tags:
+      - Cluster
+      summary: Get cluster
+      description: Get a cluster by ID.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+    patch:
+      operationId: updateCluster
+      tags:
+      - Cluster
+      summary: Update cluster
+      description: Update various properties of an existing cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+    delete:
+      operationId: destroyCluster
+      tags:
+      - Cluster
+      summary: Destroy cluster
+      description: Delete a database cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/status:
+    get:
+      operationId: getClusterStatus
+      tags:
+      - Cluster
+      summary: Get cluster status
+      description: Gets the online status for a cluster. This differs from the standard get endpoint in that it contains information about the cluster that's retrieved from the Bridge platform's backend
+        state machine responsible for managing Postgres instances, rather than information that's stored out of band in the API component, and which may not be as current.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/forks:
+    post:
+      operationId: createClusterFork
+      tags:
+      - Cluster
+      summary: Create cluster fork
+      description: Note that target_time must be between the cluster's oldest backup (see oldest_backup_at under cluster status) and the current time. Clusters can't be forked until an initial backup has
+        been captured for them. This will occur shortly after they're created, but a brand new cluster may not be available for forking right away.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/disable-ha:
+    put:
+      operationId: disableHighAvailability
+      tags:
+      - Cluster
+      summary: Disable high availability
+      description: Disable high availability on a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/enable-ha:
+    put:
+      operationId: enableHighAvailability
+      tags:
+      - Cluster
+      summary: Enable high availability
+      description: Enable high availability on a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/ping:
+    put:
+      operationId: ping
+      tags:
+      - Cluster
+      summary: Ping
+      description: Ping a cluster by remoting into it and executing a simple query inside its Postgres database. This endpoint provides an easy way of checking a cluster's liveliness.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/restart:
+    put:
+      operationId: restartCluster
+      tags:
+      - Cluster
+      summary: Restart cluster
+      description: The restart occurs asynchronously and calling this endpoint multiple times will idempotently queue up a only single restart until that restart occurs, at which point a new restart can
+        be queued.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/resume:
+    put:
+      operationId: resumeCluster
+      tags:
+      - Cluster
+      summary: Resume cluster
+      description: Resumes normal operation of a suspended cluster. Normal billing is resumed as well.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/start-backup:
+    put:
+      operationId: startBackup
+      tags:
+      - Cluster
+      summary: Start backup
+      description: Existing backups are available via the list backups endpoint.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/suspend:
+    put:
+      operationId: suspendCluster
+      tags:
+      - Cluster
+      summary: Suspend cluster
+      description: Currently this feature is only supported on AWS and Azure, and the target cluster must be a primary.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/tailscale-connect:
+    put:
+      operationId: connectToATailscaleNetwork
+      tags:
+      - Cluster
+      summary: Connect to a Tailscale network
+      description: See the Tailscale docs on tailnets for more information.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/tailscale-disconnect:
+    put:
+      operationId: disconnectFromATailscaleNetwork
+      tags:
+      - Cluster
+      summary: Disconnect from a Tailscale network
+      description: See the Tailscale docs on tailnets for more information.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /configuration-parameters:
+    get:
+      operationId: listSupportedClusterConfigurationParameters
+      tags:
+      - Configuration Parameter
+      summary: List supported cluster configuration parameters
+      description: Unlike other list endpoints, this one doesn't support pagination.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/configuration-parameter
+  /clusters/{cluster_id}/configuration-parameters:
+    get:
+      operationId: listClusterConfigurationParameters
+      tags:
+      - Configuration Parameter
+      summary: List cluster configuration parameters
+      description: Unlike other list endpoints, this one doesn't support pagination.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/configuration-parameter
+    put:
+      operationId: updateClusterConfigurationParameters
+      tags:
+      - Configuration Parameter
+      summary: Update cluster configuration parameters
+      description: Update cluster configuration parameters.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/configuration-parameter
+  /clusters/{cluster_id}/configuration-parameters/{configuration_parameter_name}:
+    get:
+      operationId: getAClusterConfigurationParameter
+      tags:
+      - Configuration Parameter
+      summary: Get a cluster configuration parameter
+      description: Get the value of a specific cluster configuration parameter.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: configuration_parameter_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/configuration-parameter
+  /events:
+    get:
+      operationId: listEvents
+      tags:
+      - Event
+      summary: List events
+      description: This endpoint's pagination may be ordered through the order_field parameter by id only.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/event
+  /events/{event_id}:
+    get:
+      operationId: getEvent
+      tags:
+      - Event
+      summary: Get event
+      description: Get a specific event.
+      parameters:
+      - name: event_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/event
+  /metric-views/{name}:
+    get:
+      operationId: getMetricView
+      tags:
+      - Metric View
+      summary: Get metric view
+      description: Get a metric view.
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/metric-view
+  /networks/{network_id}/firewall-rules:
+    get:
+      operationId: listFirewallRulesNetworkFirewallRule
+      tags:
+      - Network Firewall Rule
+      summary: List firewall rules
+      description: This endpoint's pagination may be ordered through the order_field parameter by id or cidr. Defaults to being ordered by id.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network-firewall-rule
+    post:
+      operationId: createFirewallRuleNetworkFirewallRule
+      tags:
+      - Network Firewall Rule
+      summary: Create firewall rule
+      description: Create a new firewall rule for a network.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network-firewall-rule
+  /networks/{network_id}/firewall-rules/{rule_id}:
+    get:
+      operationId: getFirewallRule
+      tags:
+      - Network Firewall Rule
+      summary: Get firewall rule
+      description: Get an existing firewall rule for a network.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rule_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network-firewall-rule
+    patch:
+      operationId: updateFirewallRuleNetworkFirewallRule
+      tags:
+      - Network Firewall Rule
+      summary: Update firewall rule
+      description: Update an existing firewall rule for a network.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rule_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network-firewall-rule
+    delete:
+      operationId: destroyFirewallRuleNetworkFirewallRule
+      tags:
+      - Network Firewall Rule
+      summary: Destroy firewall rule
+      description: Delete an existing firewall rule for a network.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rule_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network-firewall-rule
+  /networks/{network_id}/peerings:
+    get:
+      operationId: listNetworkPeerings
+      tags:
+      - Network Peering
+      summary: List network peerings
+      description: This endpoint's pagination may be ordered through the order_field parameter by id. Defaults to being ordered by id.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network-peering
+    post:
+      operationId: createNetworkPeering
+      tags:
+      - Network Peering
+      summary: Create network peering
+      description: Create a new peering for a network.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network-peering
+  /networks/{network_id}/peerings/{peering_id}:
+    get:
+      operationId: getNetworkPeering
+      tags:
+      - Network Peering
+      summary: Get network peering
+      description: Get an existing peering for a network.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: peering_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network-peering
+    delete:
+      operationId: destroyNetworkPeering
+      tags:
+      - Network Peering
+      summary: Destroy network peering
+      description: Delete an existing peering for a network.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: peering_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network-peering
+  /networks:
+    get:
+      operationId: listNetworks
+      tags:
+      - Network
+      summary: List networks
+      description: This endpoint's pagination may be ordered through the order_field parameter by id only.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network
+  /networks/{network_id}:
+    get:
+      operationId: getNetwork
+      tags:
+      - Network
+      summary: Get network
+      description: Get details for a network.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network
+    patch:
+      operationId: updateNetwork
+      tags:
+      - Network
+      summary: Update network
+      description: Update a network.
+      parameters:
+      - name: network_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/network
+  /clusters/{cluster_id}/roles:
+    get:
+      operationId: listRoles
+      tags:
+      - Postgres Role
+      summary: List roles
+      description: This endpoint's pagination may be ordered through the order_field parameter by id or name. Defaults to being ordered by id.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+    post:
+      operationId: createRole
+      tags:
+      - Postgres Role
+      summary: Create role
+      description: Create a new Postgres role in a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+  /clusters/{cluster_id}/roles/{role_name}:
+    get:
+      operationId: getRole
+      tags:
+      - Postgres Role
+      summary: Get role
+      description: Get an existing Postgres role for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: role_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+    put:
+      operationId: updateRole
+      tags:
+      - Postgres Role
+      summary: Update role
+      description: Idempotently updates or creates (if it didn't exist) a Postgres role in a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: role_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+    delete:
+      operationId: deleteRole
+      tags:
+      - Postgres Role
+      summary: Delete role
+      description: Delete an existing Postgres role for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: role_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+  /postgres-versions:
+    get:
+      operationId: listPostgresVersions
+      tags:
+      - Postgres Version
+      summary: List Postgres versions
+      description: List available Postgres versions.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-version
+  /postgres-versions/{postgres_version_id}:
+    get:
+      operationId: getPostgresVersion
+      tags:
+      - Postgres Version
+      summary: Get Postgres version
+      description: Get a specific Postgres version.
+      parameters:
+      - name: postgres_version_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-version
+  /clusters/{cluster_id}/private-link-connections:
+    get:
+      operationId: listPrivateLinkConnections
+      tags:
+      - Private Link Connection
+      summary: List private link connections
+      description: Unlike other list endpoints, this one doesn't support pagination.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/private-link-connection
+  /clusters/{cluster_id}/private-link-connections/{connection_id}/actions/approve:
+    post:
+      operationId: approveAPrivateLinkConnection
+      tags:
+      - Private Link Connection
+      summary: Approve a private link connection
+      description: Approve a private link connection for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: connection_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/private-link-connection
+  /clusters/{cluster_id}/private-link-connections/{connection_id}/actions/reject:
+    post:
+      operationId: rejectAPrivateLinkConnection
+      tags:
+      - Private Link Connection
+      summary: Reject a private link connection
+      description: Reject a private link connection.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: connection_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/private-link-connection
+  /clusters/{cluster_id}/private-link:
+    get:
+      operationId: getPrivateLink
+      tags:
+      - Private Link
+      summary: Get private link
+      description: Get private link of a cluster, returns a 404 if the cluster has no private link.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/private-link
+    post:
+      operationId: createPrivateLink
+      tags:
+      - Private Link
+      summary: Create private link
+      description: Create a new private link for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/private-link
+    delete:
+      operationId: destroyPrivateLink
+      tags:
+      - Private Link
+      summary: Destroy private link
+      description: Delete the private link of a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/private-link
+  /providers:
+    get:
+      operationId: listProviders
+      tags:
+      - Provider
+      summary: List providers
+      description: List available cloud providers.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/provider
+  /queries:
+    post:
+      operationId: createQuery
+      tags:
+      - Query
+      summary: Create query
+      description: Callers can set async to true to have the query run asynchronously instead. Asynchronous queries are allowed more time to run, but their status must be polled on the get endpoint to check
+        for completion.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/query
+  /teams/{team_id}/members:
+    get:
+      operationId: listTeamMembers
+      tags:
+      - Team Member
+      summary: List team members
+      description: This endpoint's pagination may be ordered through the order_field parameter by id and email.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+    post:
+      operationId: createTeamMember
+      tags:
+      - Team Member
+      summary: Create team member
+      description: Add a user to team.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+  /teams/{team_id}/members/{account_id}:
+    get:
+      operationId: getTeamMember
+      tags:
+      - Team Member
+      summary: Get team member
+      description: Get a specific team member.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: account_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+    put:
+      operationId: updateTeamMember
+      tags:
+      - Team Member
+      summary: Update team member
+      description: Add a team member to a team, or update a team member's role if they're already on the team.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: account_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+    delete:
+      operationId: removeTeamMember
+      tags:
+      - Team Member
+      summary: Remove team member
+      description: If an account is a member of multiple access groups, they're removed from all access groups.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: account_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+  /teams:
+    get:
+      operationId: listTeams
+      tags:
+      - Team
+      summary: List teams
+      description: This endpoint's pagination may be ordered through the order_field parameter by id and name. Defaults to name.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team
+    post:
+      operationId: createTeam
+      tags:
+      - Team
+      summary: Create team
+      description: Create a new team.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team
+  /teams/{team_id}:
+    get:
+      operationId: getTeam
+      tags:
+      - Team
+      summary: Get team
+      description: Get an existing team.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team
+    patch:
+      operationId: updateTeam
+      tags:
+      - Team
+      summary: Update team
+      description: Update an existing team.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team
+    delete:
+      operationId: destroyTeam
+      tags:
+      - Team
+      summary: Destroy team
+      description: Delete an existing team.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team
+  /changelogs:
+    get:
+      operationId: listChangelogEntries
+      tags:
+      - Changelog
+      summary: List changelog entries
+      description: List changelogs. This endpoint's pagination may be ordered through the order_field parameter by id only.
+      parameters:
+      - name: component
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/changelog
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+      description: 'API key sent as Authorization: Bearer $CRUNCHY_API_KEY (per the docs cURL examples).'

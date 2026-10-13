@@ -1,0 +1,17 @@
+name: cb (Crunchy Bridge CLI)
+generated: '2026-10-13'
+method: searched
+source: https://github.com/CrunchyData/bridge-cli
+install:
+- method: homebrew
+  command: brew install CrunchyData/brew/cb
+- method: binary
+  url: https://github.com/CrunchyData/bridge-cli/releases
+commands:
+- command: cb psql <cluster id>
+  description: securely connect to your database
+- command: cb scope
+  description: run health checks
+version: v3.7.2
+published: '2026-09-17'
+language: Crystal
