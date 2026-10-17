@@ -105,19 +105,372 @@ common:
 - type: CLI
   url: https://github.com/CrunchyData/bridge-cli
 apis:
-- aid: crunchy-data:crunchy-bridge-api
-  name: Crunchy Bridge API
-  description: 'REST API for the Crunchy Bridge managed Postgres platform: clusters, backups, replicas, upgrades, firewall rules, networks, peering, private links, Postgres roles, teams, accounts, events
-    and metrics. Authenticated with a Bearer API key.'
+- aid: crunchy-data:crunchy-data-access-token-api
+  name: Crunchy Data Access Token API
+  description: The Access Token API from Crunchy Data — 2 operation(s) for access token.
   humanURL: https://docs.crunchybridge.com/api
   baseURL: https://api.crunchybridge.com
   tags:
-  - PostgreSQL
-  - Managed Database
-  - DBaaS
+  - Access Token
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/crunchy-data-openapi-generated.yml
+    url: openapi/crunchy-data-access-token-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-account-api
+  name: Crunchy Data Account API
+  description: The Account API from Crunchy Data — 1 operation(s) for account.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-account-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-changelog-api
+  name: Crunchy Data Changelog API
+  description: The Changelog API from Crunchy Data — 1 operation(s) for changelog.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Changelog
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-changelog-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-cluster-api
+  name: Crunchy Data Cluster API
+  description: The Cluster API from Crunchy Data — 13 operation(s) for cluster.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-cluster-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-cluster-backup-api
+  name: Crunchy Data Cluster Backup API
+  description: The Cluster Backup API from Crunchy Data — 2 operation(s) for cluster backup.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Cluster Backup
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-cluster-backup-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-cluster-firewall-rule-api
+  name: Crunchy Data Cluster Firewall Rule API
+  description: >-
+    The Cluster Firewall Rule API from Crunchy Data — 2 operation(s) for cluster firewall rule.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Cluster Firewall Rule
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-cluster-firewall-rule-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-cluster-logger-api
+  name: Crunchy Data Cluster Logger API
+  description: The Cluster Logger API from Crunchy Data — 2 operation(s) for cluster logger.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Cluster Logger
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-cluster-logger-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-cluster-replica-api
+  name: Crunchy Data Cluster Replica API
+  description: The Cluster Replica API from Crunchy Data — 2 operation(s) for cluster replica.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Cluster Replica
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-cluster-replica-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-cluster-upgrade-api
+  name: Crunchy Data Cluster Upgrade API
+  description: The Cluster Upgrade API from Crunchy Data — 1 operation(s) for cluster upgrade.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Cluster Upgrade
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-cluster-upgrade-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-configuration-parameter-api
+  name: Crunchy Data Configuration Parameter API
+  description: >-
+    The Configuration Parameter API from Crunchy Data — 3 operation(s) for configuration parameter.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Configuration Parameter
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-configuration-parameter-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-event-api
+  name: Crunchy Data Event API
+  description: The Event API from Crunchy Data — 2 operation(s) for event.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Event
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-event-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-metric-view-api
+  name: Crunchy Data Metric View API
+  description: The Metric View API from Crunchy Data — 1 operation(s) for metric view.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Metric View
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-metric-view-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-network-api
+  name: Crunchy Data Network API
+  description: The Network API from Crunchy Data — 2 operation(s) for network.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Network
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-network-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-network-firewall-rule-api
+  name: Crunchy Data Network Firewall Rule API
+  description: >-
+    The Network Firewall Rule API from Crunchy Data — 2 operation(s) for network firewall rule.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Network Firewall Rule
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-network-firewall-rule-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-network-peering-api
+  name: Crunchy Data Network Peering API
+  description: The Network Peering API from Crunchy Data — 2 operation(s) for network peering.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Network Peering
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-network-peering-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-postgres-role-api
+  name: Crunchy Data Postgres Role API
+  description: The Postgres Role API from Crunchy Data — 2 operation(s) for postgres role.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Postgres Role
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-postgres-role-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-postgres-version-api
+  name: Crunchy Data Postgres Version API
+  description: The Postgres Version API from Crunchy Data — 2 operation(s) for postgres version.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Postgres Version
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-postgres-version-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-private-link-api
+  name: Crunchy Data Private Link API
+  description: The Private Link API from Crunchy Data — 1 operation(s) for private link.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Private Link
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-private-link-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-private-link-connection-api
+  name: Crunchy Data Private Link Connection API
+  description: >-
+    The Private Link Connection API from Crunchy Data — 3 operation(s) for private link connection.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Private Link Connection
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-private-link-connection-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-provider-api
+  name: Crunchy Data Provider API
+  description: The Provider API from Crunchy Data — 1 operation(s) for provider.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Provider
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-provider-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-query-api
+  name: Crunchy Data Query API
+  description: The Query API from Crunchy Data — 1 operation(s) for query.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-query-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-team-api
+  name: Crunchy Data Team API
+  description: The Team API from Crunchy Data — 2 operation(s) for team.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Team
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-team-api-openapi.yml
+  - type: Documentation
+    url: https://docs.crunchybridge.com/api
+  - type: GettingStarted
+    url: https://docs.crunchybridge.com/api-concepts/getting-started
+  - type: ChangeLog
+    url: https://docs.crunchybridge.com/api/changelog
+- aid: crunchy-data:crunchy-data-team-member-api
+  name: Crunchy Data Team Member API
+  description: The Team Member API from Crunchy Data — 2 operation(s) for team member.
+  humanURL: https://docs.crunchybridge.com/api
+  baseURL: https://api.crunchybridge.com
+  tags:
+  - Team Member
+  properties:
+  - type: OpenAPI
+    url: openapi/crunchy-data-team-member-api-openapi.yml
   - type: Documentation
     url: https://docs.crunchybridge.com/api
   - type: GettingStarted

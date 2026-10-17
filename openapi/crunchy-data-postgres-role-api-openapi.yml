@@ -1,0 +1,144 @@
+openapi: 3.2.0
+info:
+  title: Crunchy Bridge Postgres Role API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 82 operation(s), each METHOD + path copied verbatim from the code blocks of the public Crunchy Bridge API reference (docs.crunchybridge.com/api/*; each operation names its page in x-source).'
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: deterministic code-block extraction (scratch script; generate-contract-from-docs.py split path params on <span> tokens and collapsed /clusters/{cluster_id} to /clusters)
+  x-sources:
+  - https://docs.crunchybridge.com/api/access-token
+  - https://docs.crunchybridge.com/api/account
+  - https://docs.crunchybridge.com/api/cluster
+  - https://docs.crunchybridge.com/api/cluster-backup
+  - https://docs.crunchybridge.com/api/cluster-firewall-rule
+  - https://docs.crunchybridge.com/api/cluster-logger
+  - https://docs.crunchybridge.com/api/cluster-replica
+  - https://docs.crunchybridge.com/api/cluster-upgrade
+  - https://docs.crunchybridge.com/api/configuration-parameter
+  - https://docs.crunchybridge.com/api/event
+  - https://docs.crunchybridge.com/api/metric-view
+  - https://docs.crunchybridge.com/api/network
+  - https://docs.crunchybridge.com/api/network-firewall-rule
+  - https://docs.crunchybridge.com/api/network-peering
+  - https://docs.crunchybridge.com/api/postgres-role
+  - https://docs.crunchybridge.com/api/postgres-version
+  - https://docs.crunchybridge.com/api/private-link
+  - https://docs.crunchybridge.com/api/private-link-connection
+  - https://docs.crunchybridge.com/api/provider
+  - https://docs.crunchybridge.com/api/query
+  - https://docs.crunchybridge.com/api/team
+  - https://docs.crunchybridge.com/api/team-member
+  - https://docs.crunchybridge.com/api/changelog
+servers:
+- url: https://api.crunchybridge.com
+security:
+- bearer: []
+tags:
+- name: Postgres Role
+paths:
+  /clusters/{cluster_id}/roles:
+    get:
+      operationId: listRoles
+      tags:
+      - Postgres Role
+      summary: List roles
+      description: This endpoint's pagination may be ordered through the order_field parameter by id or name. Defaults to being ordered by id.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+    post:
+      operationId: createRole
+      tags:
+      - Postgres Role
+      summary: Create role
+      description: Create a new Postgres role in a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+  /clusters/{cluster_id}/roles/{role_name}:
+    get:
+      operationId: getRole
+      tags:
+      - Postgres Role
+      summary: Get role
+      description: Get an existing Postgres role for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: role_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+    put:
+      operationId: updateRole
+      tags:
+      - Postgres Role
+      summary: Update role
+      description: Idempotently updates or creates (if it didn't exist) a Postgres role in a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: role_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+    delete:
+      operationId: deleteRole
+      tags:
+      - Postgres Role
+      summary: Delete role
+      description: Delete an existing Postgres role for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: role_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/postgres-role
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+      description: 'API key sent as Authorization: Bearer $CRUNCHY_API_KEY (per the docs cURL examples).'

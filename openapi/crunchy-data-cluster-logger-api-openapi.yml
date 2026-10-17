@@ -1,0 +1,144 @@
+openapi: 3.2.0
+info:
+  title: Crunchy Bridge Cluster Logger API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 82 operation(s), each METHOD + path copied verbatim from the code blocks of the public Crunchy Bridge API reference (docs.crunchybridge.com/api/*; each operation names its page in x-source).'
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: deterministic code-block extraction (scratch script; generate-contract-from-docs.py split path params on <span> tokens and collapsed /clusters/{cluster_id} to /clusters)
+  x-sources:
+  - https://docs.crunchybridge.com/api/access-token
+  - https://docs.crunchybridge.com/api/account
+  - https://docs.crunchybridge.com/api/cluster
+  - https://docs.crunchybridge.com/api/cluster-backup
+  - https://docs.crunchybridge.com/api/cluster-firewall-rule
+  - https://docs.crunchybridge.com/api/cluster-logger
+  - https://docs.crunchybridge.com/api/cluster-replica
+  - https://docs.crunchybridge.com/api/cluster-upgrade
+  - https://docs.crunchybridge.com/api/configuration-parameter
+  - https://docs.crunchybridge.com/api/event
+  - https://docs.crunchybridge.com/api/metric-view
+  - https://docs.crunchybridge.com/api/network
+  - https://docs.crunchybridge.com/api/network-firewall-rule
+  - https://docs.crunchybridge.com/api/network-peering
+  - https://docs.crunchybridge.com/api/postgres-role
+  - https://docs.crunchybridge.com/api/postgres-version
+  - https://docs.crunchybridge.com/api/private-link
+  - https://docs.crunchybridge.com/api/private-link-connection
+  - https://docs.crunchybridge.com/api/provider
+  - https://docs.crunchybridge.com/api/query
+  - https://docs.crunchybridge.com/api/team
+  - https://docs.crunchybridge.com/api/team-member
+  - https://docs.crunchybridge.com/api/changelog
+servers:
+- url: https://api.crunchybridge.com
+security:
+- bearer: []
+tags:
+- name: Cluster Logger
+paths:
+  /clusters/{cluster_id}/loggers:
+    get:
+      operationId: listLoggers
+      tags:
+      - Cluster Logger
+      summary: List loggers
+      description: This endpoint's pagination may be ordered through the order_field parameter by id or host_and_port. Defaults to being ordered by id.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+    post:
+      operationId: createLogger
+      tags:
+      - Cluster Logger
+      summary: Create logger
+      description: Create a new logger for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+  /clusters/{cluster_id}/loggers/{logger_id}:
+    get:
+      operationId: getLogger
+      tags:
+      - Cluster Logger
+      summary: Get logger
+      description: Get an existing logger for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: logger_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+    put:
+      operationId: updateLogger
+      tags:
+      - Cluster Logger
+      summary: Update logger
+      description: Update an existing logger for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: logger_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+    delete:
+      operationId: destroyLogger
+      tags:
+      - Cluster Logger
+      summary: Destroy logger
+      description: Delete an existing logger for a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: logger_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster-logger
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+      description: 'API key sent as Authorization: Bearer $CRUNCHY_API_KEY (per the docs cURL examples).'

@@ -1,0 +1,304 @@
+openapi: 3.2.0
+info:
+  title: Crunchy Bridge Cluster API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 82 operation(s), each METHOD + path copied verbatim from the code blocks of the public Crunchy Bridge API reference (docs.crunchybridge.com/api/*; each operation names its page in x-source).'
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: deterministic code-block extraction (scratch script; generate-contract-from-docs.py split path params on <span> tokens and collapsed /clusters/{cluster_id} to /clusters)
+  x-sources:
+  - https://docs.crunchybridge.com/api/access-token
+  - https://docs.crunchybridge.com/api/account
+  - https://docs.crunchybridge.com/api/cluster
+  - https://docs.crunchybridge.com/api/cluster-backup
+  - https://docs.crunchybridge.com/api/cluster-firewall-rule
+  - https://docs.crunchybridge.com/api/cluster-logger
+  - https://docs.crunchybridge.com/api/cluster-replica
+  - https://docs.crunchybridge.com/api/cluster-upgrade
+  - https://docs.crunchybridge.com/api/configuration-parameter
+  - https://docs.crunchybridge.com/api/event
+  - https://docs.crunchybridge.com/api/metric-view
+  - https://docs.crunchybridge.com/api/network
+  - https://docs.crunchybridge.com/api/network-firewall-rule
+  - https://docs.crunchybridge.com/api/network-peering
+  - https://docs.crunchybridge.com/api/postgres-role
+  - https://docs.crunchybridge.com/api/postgres-version
+  - https://docs.crunchybridge.com/api/private-link
+  - https://docs.crunchybridge.com/api/private-link-connection
+  - https://docs.crunchybridge.com/api/provider
+  - https://docs.crunchybridge.com/api/query
+  - https://docs.crunchybridge.com/api/team
+  - https://docs.crunchybridge.com/api/team-member
+  - https://docs.crunchybridge.com/api/changelog
+servers:
+- url: https://api.crunchybridge.com
+security:
+- bearer: []
+tags:
+- name: Cluster
+paths:
+  /clusters:
+    get:
+      operationId: listClusters
+      tags:
+      - Cluster
+      summary: List clusters
+      description: This endpoint's pagination may be ordered through the order_field parameter by id or name. Defaults to being ordered by name.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+    post:
+      operationId: createCluster
+      tags:
+      - Cluster
+      summary: Create cluster
+      description: Create a database cluster.
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}:
+    get:
+      operationId: getCluster
+      tags:
+      - Cluster
+      summary: Get cluster
+      description: Get a cluster by ID.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+    patch:
+      operationId: updateCluster
+      tags:
+      - Cluster
+      summary: Update cluster
+      description: Update various properties of an existing cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+    delete:
+      operationId: destroyCluster
+      tags:
+      - Cluster
+      summary: Destroy cluster
+      description: Delete a database cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/status:
+    get:
+      operationId: getClusterStatus
+      tags:
+      - Cluster
+      summary: Get cluster status
+      description: Gets the online status for a cluster. This differs from the standard get endpoint in that it contains information about the cluster that's retrieved from the Bridge platform's backend state machine responsible for managing Postgres instances, rather than information that's stored out of band in the API component, and which may not be as current.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/forks:
+    post:
+      operationId: createClusterFork
+      tags:
+      - Cluster
+      summary: Create cluster fork
+      description: Note that target_time must be between the cluster's oldest backup (see oldest_backup_at under cluster status) and the current time. Clusters can't be forked until an initial backup has been captured for them. This will occur shortly after they're created, but a brand new cluster may not be available for forking right away.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/disable-ha:
+    put:
+      operationId: disableHighAvailability
+      tags:
+      - Cluster
+      summary: Disable high availability
+      description: Disable high availability on a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/enable-ha:
+    put:
+      operationId: enableHighAvailability
+      tags:
+      - Cluster
+      summary: Enable high availability
+      description: Enable high availability on a cluster.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/ping:
+    put:
+      operationId: ping
+      tags:
+      - Cluster
+      summary: Ping
+      description: Ping a cluster by remoting into it and executing a simple query inside its Postgres database. This endpoint provides an easy way of checking a cluster's liveliness.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/restart:
+    put:
+      operationId: restartCluster
+      tags:
+      - Cluster
+      summary: Restart cluster
+      description: The restart occurs asynchronously and calling this endpoint multiple times will idempotently queue up a only single restart until that restart occurs, at which point a new restart can be queued.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/resume:
+    put:
+      operationId: resumeCluster
+      tags:
+      - Cluster
+      summary: Resume cluster
+      description: Resumes normal operation of a suspended cluster. Normal billing is resumed as well.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/start-backup:
+    put:
+      operationId: startBackup
+      tags:
+      - Cluster
+      summary: Start backup
+      description: Existing backups are available via the list backups endpoint.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/suspend:
+    put:
+      operationId: suspendCluster
+      tags:
+      - Cluster
+      summary: Suspend cluster
+      description: Currently this feature is only supported on AWS and Azure, and the target cluster must be a primary.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/tailscale-connect:
+    put:
+      operationId: connectToATailscaleNetwork
+      tags:
+      - Cluster
+      summary: Connect to a Tailscale network
+      description: See the Tailscale docs on tailnets for more information.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+  /clusters/{cluster_id}/actions/tailscale-disconnect:
+    put:
+      operationId: disconnectFromATailscaleNetwork
+      tags:
+      - Cluster
+      summary: Disconnect from a Tailscale network
+      description: See the Tailscale docs on tailnets for more information.
+      parameters:
+      - name: cluster_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/cluster
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+      description: 'API key sent as Authorization: Bearer $CRUNCHY_API_KEY (per the docs cURL examples).'

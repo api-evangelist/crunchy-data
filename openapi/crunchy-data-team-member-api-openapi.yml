@@ -1,0 +1,144 @@
+openapi: 3.2.0
+info:
+  title: Crunchy Bridge Team Member API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 82 operation(s), each METHOD + path copied verbatim from the code blocks of the public Crunchy Bridge API reference (docs.crunchybridge.com/api/*; each operation names its page in x-source).'
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: deterministic code-block extraction (scratch script; generate-contract-from-docs.py split path params on <span> tokens and collapsed /clusters/{cluster_id} to /clusters)
+  x-sources:
+  - https://docs.crunchybridge.com/api/access-token
+  - https://docs.crunchybridge.com/api/account
+  - https://docs.crunchybridge.com/api/cluster
+  - https://docs.crunchybridge.com/api/cluster-backup
+  - https://docs.crunchybridge.com/api/cluster-firewall-rule
+  - https://docs.crunchybridge.com/api/cluster-logger
+  - https://docs.crunchybridge.com/api/cluster-replica
+  - https://docs.crunchybridge.com/api/cluster-upgrade
+  - https://docs.crunchybridge.com/api/configuration-parameter
+  - https://docs.crunchybridge.com/api/event
+  - https://docs.crunchybridge.com/api/metric-view
+  - https://docs.crunchybridge.com/api/network
+  - https://docs.crunchybridge.com/api/network-firewall-rule
+  - https://docs.crunchybridge.com/api/network-peering
+  - https://docs.crunchybridge.com/api/postgres-role
+  - https://docs.crunchybridge.com/api/postgres-version
+  - https://docs.crunchybridge.com/api/private-link
+  - https://docs.crunchybridge.com/api/private-link-connection
+  - https://docs.crunchybridge.com/api/provider
+  - https://docs.crunchybridge.com/api/query
+  - https://docs.crunchybridge.com/api/team
+  - https://docs.crunchybridge.com/api/team-member
+  - https://docs.crunchybridge.com/api/changelog
+servers:
+- url: https://api.crunchybridge.com
+security:
+- bearer: []
+tags:
+- name: Team Member
+paths:
+  /teams/{team_id}/members:
+    get:
+      operationId: listTeamMembers
+      tags:
+      - Team Member
+      summary: List team members
+      description: This endpoint's pagination may be ordered through the order_field parameter by id and email.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+    post:
+      operationId: createTeamMember
+      tags:
+      - Team Member
+      summary: Create team member
+      description: Add a user to team.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+  /teams/{team_id}/members/{account_id}:
+    get:
+      operationId: getTeamMember
+      tags:
+      - Team Member
+      summary: Get team member
+      description: Get a specific team member.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: account_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+    put:
+      operationId: updateTeamMember
+      tags:
+      - Team Member
+      summary: Update team member
+      description: Add a team member to a team, or update a team member's role if they're already on the team.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: account_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+    delete:
+      operationId: removeTeamMember
+      tags:
+      - Team Member
+      summary: Remove team member
+      description: If an account is a member of multiple access groups, they're removed from all access groups.
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: account_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: See the documentation page named in x-source for the documented response.
+      x-source: https://docs.crunchybridge.com/api/team-member
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+      description: 'API key sent as Authorization: Bearer $CRUNCHY_API_KEY (per the docs cURL examples).'
